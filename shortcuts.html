@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shortcuts</title>
+    <style>
+        body {
+    background: rgb(16, 11, 10);
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.title {
+    display: block;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-size: 42px;
+    font-weight: 400;
+    letter-spacing: 5px;
+}
+
+.cont {
+    border-radius: 40px;
+    display: inline-block;
+    width: 85%;
+    max-width: 950px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background: #fff1;
+    font-size: 28px;
+}
+
+tlacitko {
+    display: inline-block;
+    width: 70%;
+    height: 100%;
+    font-size: 28px;
+    letter-spacing: 1px;
+    border: none;
+    background: transparent;
+    margin-bottom: 12px;
+    padding: 8px;
+    color: #bebebf;
+    cursor: pointer;
+    transition: 400ms;
+}
+
+tlacitko:hover {
+    width: 80%;
+    color: #fff;
+}
+    </style>
+</head>
+<body>
+    <span class="title">Shortcuts</span>
+
+    <div class="cont">
+        <tlacitko>Youtube;0;youtube.com</tlacitko>
+        <tlacitko>GitHub:240;github.com</tlacitko>
+        <tlacitko>MiftikWeb;120;miftik.tk</tlacitko>
+        <tlacitko>CodePen;200;codepen.io/your-work</tlacitko>
+        <tlacitko>Replit;240;replit.com/repls</tlacitko>
+    </div>
+
+
+    <script>
+        window.onload=()=>{
+            document.querySelectorAll("tlacitko").forEach(e=>{
+                let title = e.innerText.split(";")[0] || "?"
+                let link = "https://"+e.innerText.split(";")[2] || "?"
+                let clr = e.innerText.split(";")[1] || 40
+                e.innerHTML=title
+                e.style.borderBottom="hsl("+clr+",37%,48%) 3px solid"
+                e.onclick=()=>{
+                    window.open(link,"_blank")
+                }
+            }) 
+        }
+    </script>
+</body>
+</html>
